@@ -1,0 +1,13 @@
+@use "sass:map";
+
+$config: () !default;
+
+// Init
+@use "config.scss" with (
+  $config: $config
+);
+
+@forward "config" hide $config;
+@forward "functions";
+@forward "mixins";
+ 

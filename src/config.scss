@@ -1,0 +1,6 @@
+@use "sass:meta";
+@use "sass:map";
+
+$config: () !default;
+
+$cid: map.get($config, cid);

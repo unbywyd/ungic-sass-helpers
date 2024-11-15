@@ -1,0 +1,16 @@
+@use "../../src/index.scss" with (
+  $config: (
+    cid: "app",
+  )
+);
+
+@use "../../src/index.scss" as *;
+
+@include this {
+  background-color: red;
+  .btn {
+    @include prev('.hide-btn') {
+        @debug &
+    }
+}
+}
