@@ -21,6 +21,8 @@
 */
 @mixin this($suffix: null) {
   @if $suffix {
+    $suffix: str-replace($suffix, "___this", cid());
+    $suffix: str-replace($suffix, "__this", cid(true));
     #{this($suffix)} {
       @content;
     }
@@ -34,6 +36,8 @@
 @mixin wrap($suffix: null, $merge: true) {
   @if $suffix {
     $output: ();
+    $suffix: str-replace($suffix, "___this", cid());
+    $suffix: str-replace($suffix, "__this", cid(true));
     $lsts: (":", "-", "+", "~", "_");
     @each $selector in & {
       $replacements: selector.parse($suffix);
@@ -71,6 +75,8 @@
 @mixin and($suffix: null) {
   @if $suffix {
     $output: ();
+    $suffix: str-replace($suffix, "___this", cid());
+    $suffix: str-replace($suffix, "__this", cid(true));
     @each $selector in & {
       $replacements: selector.append(cid(true), $suffix);
       @each $replacement in $replacements {
@@ -125,6 +131,8 @@
 @mixin before($suffix: null) {
   @if $suffix {
     $output: ();
+    $suffix: str-replace($suffix, "___this", cid());
+    $suffix: str-replace($suffix, "__this", cid(true));
     @each $selector in & {
       $replacements: selector.parse($suffix);
       @each $replacement in $replacements {
@@ -153,6 +161,8 @@
 @mixin prev($suffix: null, $merge: true) {
   @if $suffix {
     $output: ();
+    $suffix: str-replace($suffix, "___this", cid());
+    $suffix: str-replace($suffix, "__this", cid(true));
     $lsts: (":", "-", "+", "~", "_");
     @each $selector in & {
       $lng: list.length($selector);
